@@ -31,6 +31,16 @@
                 <texture>script-audio-profiles-bg.png</texture>
                 <visible>StringCompare(Window(10000).Property(script.audio.profiles_items),4)</visible>
             </control>
+            <control type="image">
+                <height>270</height>
+                <texture>script-audio-profiles-bg.png</texture>
+                <visible>StringCompare(Window(10000).Property(script.audio.profiles_items),5)</visible>
+            </control>
+            <control type="image">
+                <height>270</height>
+                <texture>script-audio-profiles-bg.png</texture>
+                <visible>StringCompare(Window(10000).Property(script.audio.profiles_items),6)</visible>
+            </control>
         </control>
         <control type="label" id="10071">
             <description>title</description>

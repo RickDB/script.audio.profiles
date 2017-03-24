@@ -86,6 +86,16 @@ msgid "Name of profile 4"
 msgstr ""
 
 #: Settings
+msgctxt "#33007"
+msgid "Name of profile 5"
+msgstr ""
+
+#: Settings
+msgctxt "#33008"
+msgid "Name of profile 6"
+
+msgstr ""
+#: Settings
 msgctxt "#32007"
 msgid "Profile 1"
 msgstr ""
@@ -103,6 +113,16 @@ msgstr ""
 #: Settings
 msgctxt "#32010"
 msgid "Profile 4"
+msgstr ""
+
+#: Settings
+msgctxt "#33011"
+msgid "Profile 5"
+msgstr ""
+
+#: Settings
+msgctxt "#33012"
+msgid "Profile 6"
 msgstr ""
 
 #: Settings

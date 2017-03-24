@@ -1,3 +1,6 @@
+[B]1.2.6[/B]
+- add: increased profile limit from 4 to 6
+
 [B]1.2.5[/B]
 - fix: assign cdda Audio CD from unknown to audio type
 - fix: prevent auto change immediately after change profile manually

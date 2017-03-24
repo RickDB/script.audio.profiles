@@ -16,6 +16,14 @@
         <setting label="32010" type="bool" id="profile4" default="false" />
         <setting label="32006" type="text" id="name4" default="HDMI" visible="eq(-1,true)" />
         <setting label="32027" type="enum" id="profile4_cec" lvalues="32026|32028|32029|32030" enable="eq(-2,true)" visible="eq(-2,true)" />
+		<setting type="sep" />
+        <setting label="33011" type="bool" id="profile5" default="false" />
+        <setting label="33007" type="text" id="name5" default="HDMI" visible="eq(-1,true)" />
+        <setting label="32027" type="enum" id="profile5_cec" lvalues="32026|32028|32029|32030" enable="eq(-2,true)" visible="eq(-2,true)" />
+		<setting type="sep" />
+        <setting label="33012" type="bool" id="profile6" default="false" />
+        <setting label="33008" type="text" id="name6" default="HDMI" visible="eq(-1,true)" />
+        <setting label="32027" type="enum" id="profile6_cec" lvalues="32026|32028|32029|32030" enable="eq(-2,true)" visible="eq(-2,true)" />
     </category>
     <category label="32002">
         <setting label="32004" type="bool" id="volume" default="false" />

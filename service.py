@@ -17,7 +17,7 @@ sys.path.append(ADDON_PATH_LIB)
 
 import debug
 
-profiles = ['1', '2', '3', '4']
+profiles = ['1', '2', '3', '4', '5', '6']
 map_type = { 'movie': 'auto_movies', 'video': 'auto_videos', 'episode': 'auto_tvshows', 'channel': 'auto_pvr', 'musicvideo': 'auto_musicvideo', 'song': 'auto_music', 'unknown': 'auto_unknown' }
 susppend_auto_change = False
 set_for_susspend = None

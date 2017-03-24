@@ -27,13 +27,17 @@ sName = {
     1: ADDON.getSetting('name1'),
     2: ADDON.getSetting('name2'),
     3: ADDON.getSetting('name3'),
-    4: ADDON.getSetting('name4')
+    4: ADDON.getSetting('name4'),
+	5: ADDON.getSetting('name5'),
+	6: ADDON.getSetting('name6'),
 }
 sProfile = {
     1: ADDON.getSetting('profile1'),
     2: ADDON.getSetting('profile2'),
     3: ADDON.getSetting('profile3'),
-    4: ADDON.getSetting('profile4')
+    4: ADDON.getSetting('profile4'),
+	5: ADDON.getSetting('profile5'),
+    6: ADDON.getSetting('profile6')
 }
 cecCommands = ['', 'CECActivateSource', 'CECStandby', 'CECToggleState']
 
@@ -70,7 +74,7 @@ class PROFILES:
                 self.profile(str(enabledProfiles[0][ret]))
             return
             
-        if mode == '0' or mode == '1' or mode == '2' or mode == '3' or mode == '4':
+        if mode == '0' or mode == '1' or mode == '2' or mode == '3' or mode == '4'or mode == '5'or mode == '6':
             if self.check(mode) is False:
                 return
             
