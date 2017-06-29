@@ -129,18 +129,18 @@ class PROFILES:
             # get all settings from Video / Playback section
             '{"jsonrpc":"2.0","method":"Settings.GetSettings", "params":{"level": "expert", "filter":{"section":"player","category":"videoplayer"}}, "id":1}',
             # get all settings from System / Video section
-            '{"jsonrpc":"2.0","method":"Settings.GetSettings", "params":{"level": "expert", "filter":{"section":"system","category":"display"}}, "id":1}'
+            '{"jsonrpc":"2.0","method":"Settings.GetSettings", "params":{"level": "expert", "filter":{"section":"system","category":"display"}}, "id":1}',
+            # get dsplayer settings from Player / DSPlayer section
+            '{"jsonrpc":"2.0","method":"Settings.GetSettings", "params":{"level": "expert", "filter":{"section":"player","category":"dsplayer"}},"id":1}' 
             ]
             
         # send json requests
         for j in json_s:
-            jsonGet = xbmc.executeJSONRPC(j)
-            jsonGet = json.loads(unicode(jsonGet, 'utf-8'))
-            debug.debug('[JSON]: ' + str(jsonGet))
-            
-            if 'result' in jsonGet:
-                if 'settings' in jsonGet['result']:
-                    for set in jsonGet['result']['settings']:
+            jsonRequest = xbmc.executeJSONRPC(j)
+            jsonResult = json.loads(jsonRequest.decode('utf-8','replace'))
+            if 'result' in jsonResult:
+                if 'settings' in jsonResult['result']:
+                    for set in jsonResult['result']['settings']:
                         if 'value' in set.keys():
                         
                             if set['value'] == True or set['value'] == False: # lowercase bolean values
@@ -151,8 +151,8 @@ class PROFILES:
                                 else:
                                     settingsToSave[set['id']] = str(set['value']).encode('utf-8')
                 
-                if 'volume' in jsonGet['result']:
-                    settingsToSave['volume'] = str(jsonGet['result']['volume'])
+                if 'volume' in jsonResult['result']:
+                    settingsToSave['volume'] = str(jsonResult['result']['volume'])
         
         # prepare JSON string to save to file
         jsonToWrite = json.dumps(settingsToSave)
@@ -233,7 +233,9 @@ class PROFILES:
         'audiooutput.audiodevice',
         'audiooutput.passthroughdevice',
         'locale.audiolanguage',
-        'lookandfeel.soundskin'
+        'lookandfeel.soundskin',
+        'dsplayer.audiorenderer',
+        'dsplayer.saneardevices'
         ]
         
         # set settings readed from profile file
@@ -244,7 +246,14 @@ class PROFILES:
                 continue
             if 'false' in sVideo and setName.startswith('videoscreen'):
                 continue
-            
+
+            # check for DSplayer settings and skip anything not related to audio
+            if setName.startswith('dsplayer.'):
+              if setName.startswith('dsplayer.audiorenderer') or setName.startswith('dsplayer.sanear'):
+                pass
+              else:
+                continue
+
             debug.debug('[RESTORING SETTING]: ' + setName + ': ' + setValue)
             # add quotes
             if setName in quote_needed:
